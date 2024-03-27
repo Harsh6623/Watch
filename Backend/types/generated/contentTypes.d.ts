@@ -887,6 +887,41 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductDetailProductDetail extends Schema.CollectionType {
+  collectionName: 'product_details';
+  info: {
+    singularName: 'product-detail';
+    pluralName: 'product-details';
+    displayName: 'ProductDetail';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    head: Attribute.String;
+    title: Attribute.Text;
+    description: Attribute.Text;
+    price: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-detail.product-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-detail.product-detail',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSliderSlider extends Schema.CollectionType {
   collectionName: 'sliders';
   info: {
@@ -1004,6 +1039,7 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::couple.couple': ApiCoupleCouple;
       'api::product.product': ApiProductProduct;
+      'api::product-detail.product-detail': ApiProductDetailProductDetail;
       'api::slider.slider': ApiSliderSlider;
       'api::smart-watch.smart-watch': ApiSmartWatchSmartWatch;
       'api::women-product.women-product': ApiWomenProductWomenProduct;

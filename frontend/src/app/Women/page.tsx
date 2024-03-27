@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 
 const Women = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,29 +19,32 @@ const Women = () => {
     };
     fetchData();
   }, []);
+
   return (
     <div>
-      <img src="/image/w-head.png" alt="" />
+      <img src="/image/w-head.png" alt="" className="w-full" />
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-row flex-wrap -m-4">
+        <div className="container px-5 py-10 mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {data.map((item: any, index) => (
-              <div key={index} className="w-1/4 p-4">
-                <Link href="">
-                  <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300">
-                    <img
-                      className="h-60 rounded w-full object-cover object-center mb-6"
-                      src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
-                      alt="content"
-                    />
-                    <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                      {item.attributes.subtitle}
-                    </h3>
-                    <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                      {item.attributes.description}
-                    </h2>
-                    <p>{item.attributes.price}</p>
-                  </div>
+              <div key={index} className="p-4">
+                <Link href="" passHref>
+                  <Link href={""}>
+                    <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300">
+                      <img
+                        className="h-60 rounded w-full object-cover object-center mb-6"
+                        src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
+                        alt="content"
+                      />
+                      <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                        {item.attributes.subtitle}
+                      </h3>
+                      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
+                        {item.attributes.description}
+                      </h2>
+                      <p>{item.attributes.price}</p>
+                    </div>
+                  </Link>
                 </Link>
               </div>
             ))}

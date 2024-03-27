@@ -33,10 +33,10 @@ const Slider = () => {
       <div className="header">
         <div className="overflow-hidden max-h-[575px]">
           <Sliders {...slide}>
-            {data?.map((item: any, index: number) => {
+            {data?.map((item: any, index: any) => {
               return (
                 <>
-                  <div key={item.index}>
+                  <div key={item.id}>
                     <img
                       className="w-full h-auto bg-center rounded-lg mt-8"
                       src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}

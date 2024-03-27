@@ -12,7 +12,7 @@ const Contact = () => {
               className="absolute inset-0"
               title="map"
               scrolling="no"
-              src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9113193321537!2d72.87034267508682!3d21.235364880466154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fa33d615b5d%3A0x13e224a83374a500!2sAR%20Mall!5e0!3m2!1sen!2sus!4v1711533299676!5m2!1sen!2sus"
               style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4);" }}
             ></iframe>
             <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
@@ -31,7 +31,6 @@ const Contact = () => {
                   className="text-indigo-500 leading-relaxed"
                 >
                   {" "}
-                  {/* Added href */}
                   watchmart@gmail.com
                 </a>
                 <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
@@ -51,7 +50,7 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Your Name" // Added placeholder
+                placeholder="Your Name"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
@@ -66,7 +65,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Your Email" // Added placeholder
+                placeholder="Your Email"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
@@ -80,7 +79,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
-                placeholder="Your Message" // Added placeholder
+                placeholder="Your Message"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
