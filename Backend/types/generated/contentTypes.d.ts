@@ -826,15 +826,19 @@ export interface ApiCoupleCouple extends Schema.CollectionType {
     singularName: 'couple';
     pluralName: 'couples';
     displayName: 'Couple';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     image: Attribute.Media;
-    subtitle: Attribute.String;
+    title: Attribute.String;
     description: Attribute.Text;
     price: Attribute.String;
+    header: Attribute.String;
+    watchnumber: Attribute.String;
+    information: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -866,9 +870,13 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
   attributes: {
     image: Attribute.Media;
-    subtitle: Attribute.String;
+    title: Attribute.String;
     description: Attribute.Text;
     price: Attribute.String;
+    slug: Attribute.UID<'api::product.product', 'title'>;
+    header: Attribute.String;
+    watchnumber: Attribute.String;
+    information: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -880,41 +888,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProductDetailProductDetail extends Schema.CollectionType {
-  collectionName: 'product_details';
-  info: {
-    singularName: 'product-detail';
-    pluralName: 'product-details';
-    displayName: 'ProductDetail';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media;
-    head: Attribute.String;
-    title: Attribute.Text;
-    description: Attribute.Text;
-    price: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::product-detail.product-detail',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::product-detail.product-detail',
       'oneToOne',
       'admin::user'
     > &
@@ -958,15 +931,19 @@ export interface ApiSmartWatchSmartWatch extends Schema.CollectionType {
     singularName: 'smart-watch';
     pluralName: 'smart-watches';
     displayName: 'SmartWatch';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     image: Attribute.Media;
-    subtitle: Attribute.String;
+    title: Attribute.String;
     description: Attribute.Text;
     price: Attribute.String;
+    header: Attribute.String;
+    watchnumber: Attribute.String;
+    information: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -991,15 +968,19 @@ export interface ApiWomenProductWomenProduct extends Schema.CollectionType {
     singularName: 'women-product';
     pluralName: 'women-products';
     displayName: 'WomenProduct';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     image: Attribute.Media;
-    subtitle: Attribute.String;
+    title: Attribute.String;
     description: Attribute.Text;
     price: Attribute.String;
+    header: Attribute.String;
+    watchnumber: Attribute.String;
+    information: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1039,7 +1020,6 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::couple.couple': ApiCoupleCouple;
       'api::product.product': ApiProductProduct;
-      'api::product-detail.product-detail': ApiProductDetailProductDetail;
       'api::slider.slider': ApiSliderSlider;
       'api::smart-watch.smart-watch': ApiSmartWatchSmartWatch;
       'api::women-product.women-product': ApiWomenProductWomenProduct;

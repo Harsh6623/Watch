@@ -14,7 +14,7 @@
   "attributes": {
     "image": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images",
@@ -23,7 +23,7 @@
         "audios"
       ]
     },
-    "subtitle": {
+    "title": {
       "type": "string"
     },
     "description": {
@@ -31,6 +31,19 @@
     },
     "price": {
       "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "header": {
+      "type": "string"
+    },
+    "watchnumber": {
+      "type": "string"
+    },
+    "information": {
+      "type": "text"
     }
   }
 }

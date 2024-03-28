@@ -4,7 +4,8 @@
   "info": {
     "singularName": "women-product",
     "pluralName": "women-products",
-    "displayName": "WomenProduct"
+    "displayName": "WomenProduct",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,16 +13,17 @@
   "pluginOptions": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "subtitle": {
+    "title": {
       "type": "string"
     },
     "description": {
@@ -29,6 +31,15 @@
     },
     "price": {
       "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "watchnumber": {
+      "type": "string"
+    },
+    "information": {
+      "type": "text"
     }
   }
 }

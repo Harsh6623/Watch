@@ -19,6 +19,7 @@ const Men = () => {
     };
     fetchData();
   }, []);
+  ``;
 
   return (
     <div>
@@ -28,23 +29,21 @@ const Men = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {data.map((item: any, index) => (
               <div key={index} className="p-4">
-                <Link href={`/products/${item.id}`} passHref>
-                  <Link href={""}>
-                    <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300">
-                      <img
-                        className="h-60 rounded w-full object-cover object-center mb-6"
-                        src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
-                        alt="content"
-                      />
-                      <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                        {item.attributes.subtitle}
-                      </h3>
-                      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                        {item.attributes.description}
-                      </h2>
-                      <p>{item.attributes.price}</p>
-                    </div>
-                  </Link>
+                <Link href={`/Product/${item.attributes.slug}`}>
+                  <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300">
+                    <img
+                      className="h-60 rounded w-full object-cover object-center mb-6"
+                      src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
+                      alt="content"
+                    />
+                    <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                      {item.attributes.subtitle}
+                    </h3>
+                    <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
+                      {item.attributes.description}
+                    </h2>
+                    <p>{item.attributes.price}</p>
+                  </div>
                 </Link>
               </div>
             ))}
