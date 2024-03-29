@@ -31,13 +31,15 @@ const Smart: React.FC = () => {
                 <Link href="" passHref>
                   <Link href={""}>
                     <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300">
-                      <img
-                        className="h-60 rounded w-full object-cover object-center mb-6"
-                        src={`http://localhost:1337${item.attributes.image.data.attributes.url}`}
-                        alt="content"
-                      />
+                      {item?.attributes?.image?.data?.[0]?.attributes?.url && (
+                        <img
+                          src={`http://localhost:1337${item?.attributes?.image?.data?.[0]?.attributes?.url}`}
+                          alt=""
+                          className="w-full h-48 object-cover"
+                        />
+                      )}
                       <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                        {item.attributes.subtitle}
+                        {item.attributes.title}
                       </h3>
                       <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
                         {item.attributes.description}

@@ -839,6 +839,7 @@ export interface ApiCoupleCouple extends Schema.CollectionType {
     header: Attribute.String;
     watchnumber: Attribute.String;
     information: Attribute.Text;
+    slug: Attribute.UID<'api::couple.couple', 'title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -944,6 +945,7 @@ export interface ApiSmartWatchSmartWatch extends Schema.CollectionType {
     header: Attribute.String;
     watchnumber: Attribute.String;
     information: Attribute.Text;
+    slug: Attribute.UID<'api::smart-watch.smart-watch', 'title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -981,6 +983,7 @@ export interface ApiWomenProductWomenProduct extends Schema.CollectionType {
     header: Attribute.String;
     watchnumber: Attribute.String;
     information: Attribute.Text;
+    slug: Attribute.UID<'api::women-product.women-product', 'title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
