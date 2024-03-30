@@ -28,7 +28,7 @@ const Men = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {data.map((item: any, index) => (
               <div key={index} className="p-4">
-                <Link href={`/Product/${item.attributes.slug}`}>
+                <Link href={`/Men/${item.attributes.slug}`}>
                   <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300">
                     {item?.attributes?.image?.data?.[0]?.attributes?.url && (
                       <img

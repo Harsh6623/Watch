@@ -28,27 +28,25 @@ const Couple: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {data.map((item: any, index) => (
               <div key={index} className="p-4 h-full">
-                <Link href="" passHref>
-                  <Link href={""}>
-                    <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300 flex flex-col justify-between">
-                      {item?.attributes?.image?.data?.[0]?.attributes?.url && (
-                        <img
-                          src={`http://localhost:1337${item?.attributes?.image?.data?.[0]?.attributes?.url}`}
-                          alt=""
-                          className="w-full h-48 object-cover"
-                        />
-                      )}
-                      <div>
-                        <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                          {item.attributes.title}
-                        </h3>
-                        <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                          {item.attributes.description}
-                        </h2>
-                        <p>{item.attributes.price}</p>
-                      </div>
+                <Link href={`/Couple/${item.attributes.slug}`}>
+                  <div className="bg-gray-100 p-6 rounded-lg hover:scale-105 transition duration-300 flex flex-col justify-between">
+                    {item?.attributes?.image?.data?.[0]?.attributes?.url && (
+                      <img
+                        src={`http://localhost:1337${item?.attributes?.image?.data?.[0]?.attributes?.url}`}
+                        alt=""
+                        className="w-full h-48 object-cover"
+                      />
+                    )}
+                    <div>
+                      <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                        {item.attributes.title}
+                      </h3>
+                      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
+                        {item.attributes.description}
+                      </h2>
+                      <p>{item.attributes.price}</p>
                     </div>
-                  </Link>
+                  </div>
                 </Link>
               </div>
             ))}
