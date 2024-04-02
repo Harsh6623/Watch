@@ -1,5 +1,5 @@
-import Slider from "./Slider/page";
+import HomePage from "./Hero/page";
 
 export default function Home() {
-  return <Slider />;
+  return <HomePage />;
 }

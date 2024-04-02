@@ -1,0 +1,13 @@
+.slider {
+  overflow: hidden;
+}
+.slider-container {
+  height: 100%;
+  display: flex;
+  position: relative;
+  transform: translateX(-100%);
+}
+.slide {
+  min-width: 100%;
+  max-width: 100%;
+}

@@ -858,6 +858,43 @@ export interface ApiCoupleCouple extends Schema.CollectionType {
   };
 }
 
+export interface ApiDiverDiver extends Schema.CollectionType {
+  collectionName: 'divers';
+  info: {
+    singularName: 'diver';
+    pluralName: 'divers';
+    displayName: 'Diver';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
+    price: Attribute.String;
+    header: Attribute.String;
+    watchnumber: Attribute.String;
+    information: Attribute.Text;
+    slug: Attribute.UID<'api::diver.diver', 'title'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::diver.diver',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::diver.diver',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -919,6 +956,36 @@ export interface ApiSliderSlider extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::slider.slider',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSlider2Slider2 extends Schema.CollectionType {
+  collectionName: 'slider2s';
+  info: {
+    singularName: 'slider2';
+    pluralName: 'slider2s';
+    displayName: 'slider2';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::slider2.slider2',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::slider2.slider2',
       'oneToOne',
       'admin::user'
     > &
@@ -1022,8 +1089,10 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::couple.couple': ApiCoupleCouple;
+      'api::diver.diver': ApiDiverDiver;
       'api::product.product': ApiProductProduct;
       'api::slider.slider': ApiSliderSlider;
+      'api::slider2.slider2': ApiSlider2Slider2;
       'api::smart-watch.smart-watch': ApiSmartWatchSmartWatch;
       'api::women-product.women-product': ApiWomenProductWomenProduct;
     }

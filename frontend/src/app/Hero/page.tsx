@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Sliders from "react-slick";
 import axios from "axios";
 
-const Slider = () => {
+const HomePage = () => {
   const [data, setData] = useState<any>(null);
   const slide = {
     dots: true,
@@ -52,4 +52,4 @@ const Slider = () => {
     </>
   );
 };
-export default Slider;
+export default HomePage;

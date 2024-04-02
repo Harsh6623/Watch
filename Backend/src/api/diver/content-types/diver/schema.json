@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "divers",
+  "info": {
+    "singularName": "diver",
+    "pluralName": "divers",
+    "displayName": "Diver"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "watchnumber": {
+      "type": "string"
+    },
+    "information": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}
