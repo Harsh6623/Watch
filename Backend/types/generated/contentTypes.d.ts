@@ -895,6 +895,43 @@ export interface ApiDiverDiver extends Schema.CollectionType {
   };
 }
 
+export interface ApiHomepageHomepage extends Schema.SingleType {
+  collectionName: 'homepages';
+  info: {
+    singularName: 'homepage';
+    pluralName: 'homepages';
+    displayName: 'homepage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heroProducts: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToMany',
+      'api::diver.diver'
+    >;
+    sections: Attribute.Component<'section.card', true>;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -926,66 +963,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::product.product',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSliderSlider extends Schema.CollectionType {
-  collectionName: 'sliders';
-  info: {
-    singularName: 'slider';
-    pluralName: 'sliders';
-    displayName: 'Slider';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::slider.slider',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::slider.slider',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiSlider2Slider2 extends Schema.CollectionType {
-  collectionName: 'slider2s';
-  info: {
-    singularName: 'slider2';
-    pluralName: 'slider2s';
-    displayName: 'slider2';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::slider2.slider2',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::slider2.slider2',
       'oneToOne',
       'admin::user'
     > &
@@ -1090,9 +1067,8 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::couple.couple': ApiCoupleCouple;
       'api::diver.diver': ApiDiverDiver;
+      'api::homepage.homepage': ApiHomepageHomepage;
       'api::product.product': ApiProductProduct;
-      'api::slider.slider': ApiSliderSlider;
-      'api::slider2.slider2': ApiSlider2Slider2;
       'api::smart-watch.smart-watch': ApiSmartWatchSmartWatch;
       'api::women-product.women-product': ApiWomenProductWomenProduct;
     }

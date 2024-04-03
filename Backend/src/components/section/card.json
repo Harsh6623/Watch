@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_section_cards",
+  "info": {
+    "displayName": "card",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "callToActionLabel": {
+      "type": "string"
+    },
+    "background": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "callToActionUrl": {
+      "type": "string"
+    }
+  }
+}

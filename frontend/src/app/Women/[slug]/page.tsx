@@ -1,7 +1,8 @@
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useParams } from "next/navigation";
+import "../../../css/slider.css";
+import Slider from "@/components/slider";
 
 export const getProduct = async (slug: any) => {
   try {
@@ -13,7 +14,6 @@ export const getProduct = async (slug: any) => {
     return null;
   }
 };
-
 async function Product({ params }: any) {
   const item = await getProduct(params.slug);
   console.log(item);
@@ -22,14 +22,17 @@ async function Product({ params }: any) {
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
-            <div className="lg:w-1/2 w-full lg:h-auto h-64">
-              {item.attributes.image.data.map((data: any) => (
-                <img
-                  className="w-[70%]"
-                  src={`${process.env.NEXT_PUBLIC_API_HOST}${data.attributes.url}`}
-                  alt=""
-                />
-              ))}
+            <div className="lg:w-1/2 w-full lg:h-auto h-64 slider">
+              <Slider>
+                {item.attributes.image.data.map((data: any, index: number) => (
+                  <img
+                    className="w-[70%]"
+                    src={`${process.env.NEXT_PUBLIC_API_HOST}${data.attributes.url}`}
+                    alt=""
+                    key={index}
+                  />
+                ))}
+              </Slider>
             </div>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">

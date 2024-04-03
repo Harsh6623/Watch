@@ -2,7 +2,6 @@ import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../../css/slider.css";
-import { Children, useRef } from "react";
 import Slider from "@/components/slider";
 
 export const getProduct = async (slug: any) => {
@@ -34,8 +33,6 @@ async function Product({ params }: any) {
                   />
                 ))}
               </Slider>
-              {/* <div className="slider-container">
-              </div> */}
             </div>
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">

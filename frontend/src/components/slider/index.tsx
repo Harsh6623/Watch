@@ -2,18 +2,18 @@
 
 import { Children, useEffect, useRef, useState } from "react";
 
-function Slider({ children }) {
+function Slider({ children }: any) {
   const arr = Children.toArray(children);
   const [els, setEls] = useState([
     arr[arr.length - 1],
     ...arr.slice(0, arr.length - 1),
   ]);
 
-  const timer = useRef<number>(null);
+  const timer: any = useRef<number>(null);
 
   useEffect(() => {
     timer.current = setInterval(() => {
-      setEls((prev) => {
+      setEls((prev: any) => {
         return [...prev.slice(1), prev[0]];
       });
     }, 2000);
@@ -23,7 +23,7 @@ function Slider({ children }) {
 
   return (
     <div className="slider-container">
-      {els.map((child, index) => (
+      {els.map((child: any, index) => (
         <div
           key={child.key}
           className="slide"
