@@ -864,6 +864,7 @@ export interface ApiDiverDiver extends Schema.CollectionType {
     singularName: 'diver';
     pluralName: 'divers';
     displayName: 'Diver';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1008,6 +1009,44 @@ export interface ApiSmartWatchSmartWatch extends Schema.CollectionType {
   };
 }
 
+export interface ApiTopWatchTopWatch extends Schema.CollectionType {
+  collectionName: 'top_watches';
+  info: {
+    singularName: 'top-watch';
+    pluralName: 'top-watches';
+    displayName: 'TopWatch';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
+    price: Attribute.String;
+    header: Attribute.String;
+    watchnumber: Attribute.String;
+    information: Attribute.Text;
+    slug: Attribute.UID<'api::top-watch.top-watch', 'title'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::top-watch.top-watch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::top-watch.top-watch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiWomenProductWomenProduct extends Schema.CollectionType {
   collectionName: 'women_products';
   info: {
@@ -1070,6 +1109,7 @@ declare module '@strapi/types' {
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::product.product': ApiProductProduct;
       'api::smart-watch.smart-watch': ApiSmartWatchSmartWatch;
+      'api::top-watch.top-watch': ApiTopWatchTopWatch;
       'api::women-product.women-product': ApiWomenProductWomenProduct;
     }
   }

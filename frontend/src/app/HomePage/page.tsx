@@ -4,16 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
-const HomePage = () => {
-  const [images, setImages] = useState([]);
+
+const HomeSider = () => {
+  const [data, setData] = useState<any>(null);
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
   };
   useEffect(() => {
     const fetchData = async () => {
@@ -21,34 +20,36 @@ const HomePage = () => {
         const response = await axios.get(
           "http://localhost:1337/api/homepage?populate=*"
         );
-        if (response && response.data && response.data.data) {
-          setImages(response.data.data.image.data);
-          console.log(response);
-        } else {
-          console.error("Invalid response format:", response);
-        }
+        setData(response.data.data);
+        console.log(response);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
   }, []);
+
   return (
     <div className="header">
-      <div className="overflow-hidden max-h-[575px]">
+      <div className="max-h-[575px] container mx-auto xl:mx-w-[1180px]">
         <Slider {...settings}>
-          {images.map((image: any) => (
-            <div key={image.id}>
-              <img
-                src={`http://localhost:1337${image.attributes.url}`}
-                alt=""
-                className="w-full h-auto bg-center rounded-lg mt-8"
-              />
-            </div>
-          ))}
+          {data &&
+            data.attributes &&
+            data.attributes.sections &&
+            data.attributes.sections.map((section: any, index: number) => (
+              <div key={index}>
+                {section.attributes && section.attributes.image && (
+                  <img
+                    className="w-full h-auto bg-center rounded-lg mt-8"
+                    src={`http://localhost:1337${section.attributes.image.data.attributes.url}`}
+                    alt=""
+                  />
+                )}
+              </div>
+            ))}
         </Slider>
       </div>
     </div>
   );
 };
-export default HomePage;
+export default HomeSider;

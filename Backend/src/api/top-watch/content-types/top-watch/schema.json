@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "divers",
+  "collectionName": "top_watches",
   "info": {
-    "singularName": "diver",
-    "pluralName": "divers",
-    "displayName": "Diver",
+    "singularName": "top-watch",
+    "pluralName": "top-watches",
+    "displayName": "TopWatch",
     "description": ""
   },
   "options": {
