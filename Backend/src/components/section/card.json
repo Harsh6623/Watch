@@ -2,7 +2,8 @@
   "collectionName": "components_section_cards",
   "info": {
     "displayName": "card",
-    "icon": "dashboard"
+    "icon": "dashboard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,12 +16,13 @@
     "callToActionLabel": {
       "type": "string"
     },
-    "background": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "callToActionUrl": {
       "type": "string"

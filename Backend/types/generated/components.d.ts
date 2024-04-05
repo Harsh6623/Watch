@@ -5,12 +5,13 @@ export interface SectionCard extends Schema.Component {
   info: {
     displayName: 'card';
     icon: 'dashboard';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.String;
     callToActionLabel: Attribute.String;
-    background: Attribute.Media;
+    image: Attribute.Media;
     callToActionUrl: Attribute.String;
   };
 }

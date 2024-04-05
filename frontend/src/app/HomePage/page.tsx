@@ -5,15 +5,18 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
 
-const HomeSider = () => {
+const HomeSlider = () => {
   const [data, setData] = useState<any>(null);
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
+    // dots: true,
+    // infinite: true,
+    // speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,27 +32,37 @@ const HomeSider = () => {
     fetchData();
   }, []);
 
+  type SliderItem = {
+    attributes: any;
+    title: string;
+    description: string;
+    image?: any;
+  };
+
   return (
     <div className="header">
-      <div className="max-h-[575px] container mx-auto xl:mx-w-[1180px]">
+      <div className="overflow-hidden max-h-[575px] container mx-auto xl:mx-w-[1180px]">
         <Slider {...settings}>
           {data &&
             data.attributes &&
-            data.attributes.sections &&
-            data.attributes.sections.map((section: any, index: number) => (
-              <div key={index}>
-                {section.attributes && section.attributes.image && (
-                  <img
-                    className="w-full h-auto bg-center rounded-lg mt-8"
-                    src={`http://localhost:1337${section.attributes.image.data.attributes.url}`}
-                    alt=""
-                  />
-                )}
-              </div>
-            ))}
+            data.attributes.image &&
+            data.attributes.image.data.map(
+              (item: SliderItem, index: number) => (
+                <div key={index}>
+                  {item.attributes && item.attributes.url && (
+                    <img
+                      className="w-full h-auto bg-center rounded-lg mt-8"
+                      src={`http://localhost:1337${item.attributes.url}`}
+                      alt=""
+                    />
+                  )}
+                </div>
+              )
+            )}
         </Slider>
       </div>
     </div>
   );
 };
-export default HomeSider;
+
+export default HomeSlider;
