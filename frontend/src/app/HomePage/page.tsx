@@ -4,13 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
+import Link from "next/link";
 
 const HomeSlider = () => {
   const [data, setData] = useState<any>(null);
   const settings = {
-    // dots: true,
-    // infinite: true,
-    // speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -21,7 +19,7 @@ const HomeSlider = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1337/api/homepage?populate=*"
+          "http://localhost:1337/api/homepage?populate[image][fields][0]=name&populate[image][fields][1]=url&populate[sections][populate][image][fields][0]=name&populate[sections][populate][image][fields][1]=url&populate[homeProducts][populate][image]=data&populate[heroProducts][populate][image]=url"
         );
         setData(response.data.data);
         console.log(response);
@@ -33,6 +31,7 @@ const HomeSlider = () => {
   }, []);
 
   type SliderItem = {
+    sections: any;
     attributes: any;
     title: string;
     description: string;
@@ -61,6 +60,25 @@ const HomeSlider = () => {
             )}
         </Slider>
       </div>
+      {data &&
+        data.attributes &&
+        data.attributes.sections &&
+        data.attributes.sections.map((section: SliderItem, index: number) => (
+          <div key={index}>
+            {section.image &&
+              section.image.data &&
+              section.image.data.attributes &&
+              section.image.data.attributes.url && (
+                <Link href="/Diver">
+                  <img
+                    className="w-[40%] h-[40%] mt-8 ml-28"
+                    src={`http://localhost:1337${section.image.data.attributes.url}`}
+                    alt=""
+                  />
+                </Link>
+              )}
+          </div>
+        ))}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import Slider from "@/components/slider";
 export const getProduct = async (slug: any) => {
   try {
     const response = await axios.get(
-      `http://localhost:1337/api/divers?filters[slug][$eq]=${slug}&populate=*`
+      `http://localhost:1337/api/top-watches?filters[slug][$eq]=${slug}&populate=*`
     );
     return response.data.data?.[0];
   } catch (error) {
