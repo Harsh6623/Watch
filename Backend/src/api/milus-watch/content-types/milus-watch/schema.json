@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "milus_watches",
+  "info": {
+    "singularName": "milus-watch",
+    "pluralName": "milus-watches",
+    "displayName": "MilusWatch",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "watchnumber": {
+      "type": "string"
+    },
+    "information": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

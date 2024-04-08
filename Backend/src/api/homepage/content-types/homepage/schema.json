@@ -29,6 +29,36 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "top_watches": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::top-watch.top-watch"
+    },
+    "Top": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.card"
+    },
+    "milus_watches": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::milus-watch.milus-watch"
+    },
+    "milus": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.card"
+    },
+    "Celebrityimage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

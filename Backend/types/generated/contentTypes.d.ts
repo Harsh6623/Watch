@@ -915,6 +915,19 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     >;
     sections: Attribute.Component<'section.card', true>;
     image: Attribute.Media;
+    top_watches: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToMany',
+      'api::top-watch.top-watch'
+    >;
+    Top: Attribute.Component<'section.card', true>;
+    milus_watches: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToMany',
+      'api::milus-watch.milus-watch'
+    >;
+    milus: Attribute.Component<'section.card', true>;
+    Celebrityimage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -926,6 +939,44 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMilusWatchMilusWatch extends Schema.CollectionType {
+  collectionName: 'milus_watches';
+  info: {
+    singularName: 'milus-watch';
+    pluralName: 'milus-watches';
+    displayName: 'MilusWatch';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
+    price: Attribute.String;
+    header: Attribute.String;
+    watchnumber: Attribute.String;
+    information: Attribute.Text;
+    slug: Attribute.UID<'api::milus-watch.milus-watch', 'title'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::milus-watch.milus-watch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::milus-watch.milus-watch',
       'oneToOne',
       'admin::user'
     > &
@@ -1107,6 +1158,7 @@ declare module '@strapi/types' {
       'api::couple.couple': ApiCoupleCouple;
       'api::diver.diver': ApiDiverDiver;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::milus-watch.milus-watch': ApiMilusWatchMilusWatch;
       'api::product.product': ApiProductProduct;
       'api::smart-watch.smart-watch': ApiSmartWatchSmartWatch;
       'api::top-watch.top-watch': ApiTopWatchTopWatch;

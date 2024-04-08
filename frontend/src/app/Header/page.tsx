@@ -8,7 +8,7 @@ const Header: React.FC = () => {
         <Link href="/" passHref>
           <span className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 cursor-pointer">
             <img
-              className="w-12 h-12 object-cover rounded-full"
+              className="w-12 h-12 object-cover"
               src="/image/logo.png"
               alt="Logo"
             />
